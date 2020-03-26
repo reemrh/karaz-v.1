@@ -33,11 +33,12 @@ function App(props) {
         <div className="App">              
           <Route path="/img-crop" component={Croper}/>
           <Route exact path="/" component={Home}/>
+          <Route path="/home" component={Home}/>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route exact path="/settings" component={Home}/>
-          <Route path="/dashboard" component={Login} />
-          {/* <Route path="/verify" component={Verification} />
+          <Route exact path="/settings" component={Settings}/>
+          <Route path="/dashboard" component={Dashboard} />
+         <Route path="/verify" component={Verification} />{/*
           <PrivateRoute path="/admin" component={Admin}/>
           <PrivateRoute path="/home" component={Home}/>
           <PrivateRoute path="/dashboard" component={Dashboard}/>
