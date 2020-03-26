@@ -38,8 +38,9 @@ function App(props) {
           <Route path="/signup" component={Signup} />
           <Route exact path="/settings" component={Settings}/>
           <Route path="/dashboard" component={Dashboard} />
-         <Route path="/verify" component={Verification} />{/*
+         <Route path="/verify" component={Verification} />
           <PrivateRoute path="/admin" component={Admin}/>
+          {/*
           <PrivateRoute path="/home" component={Home}/>
           <PrivateRoute path="/dashboard" component={Dashboard}/>
           <PrivateRoute path="/settings" component={Settings}/> */}
