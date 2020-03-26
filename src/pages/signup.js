@@ -27,6 +27,7 @@ function Signup() {
   let [EmptyEmail,setEmptyEmail]= useState("");
   let [EmptyPassword,setEmptyPassword]= useState("");
   let [EmptyAccepted,setEmptyAccepted]= useState("");
+  let msg = '';
    
   const responseGoogle = (response) => {
     console.log(response);
@@ -35,21 +36,32 @@ function Signup() {
 
   function postSignup() {
     axios
-      .post("https://authentcation.herokuapp.com/signup", {
+      .post("https://karaz-1.herokuapp.com/signup", {
         email: userEmail,
-        password: password
+        password: password,
+        city:'gaza'
       })
       .then(result => {
         if (result.status === 200) {
-          console.log("Successfully signed up");
+          console.log("sign up success and email verification code has been sent");
+          msg = 'sign up success and email verification code has been sent';
           setIsSignUp(true);
           setEmailToVerify(userEmail);
-        } else {
-          console.log("Error");
+
+        }else if (result.status === 400) {
+          console.log("email is not valid");
+          msg = 'email is not valid';
         }
+        else if (result.status === 409) {
+          console.log("user is already signed up");
+          msg = "user is already signed up";
+        }else if (result.status === 401) {
+          console.log("password is required and must be 8 character, contains numbers and letters");
+          msg = "password is required and must be 8 character, contains numbers and letters";
+        } 
       })
       .catch(e => {
-        console.log("Erro2r");
+        console.log('error is' + e);
       });
   }
   const responseFacebook = (response) => {
@@ -189,7 +201,7 @@ function Signup() {
           أوافق على <a href=""> الشروط وسياسة الخصوصية </a>
 
         </label>
-  {(EmptyAccepted)?<span className="Warning">يجب الموافقة على الشروط وسياسة الخصوصية </span>:''}
+      {(EmptyAccepted)?<span className="Warning">يجب الموافقة على الشروط وسياسة الخصوصية </span>:''}
 
 
 
@@ -200,6 +212,7 @@ function Signup() {
           </div>
           <p>تحتاج مساعدة؟</p>
         </div>
+         <span className="Warning">{msg}</span>
         <center>
           <h5 className={css`color:#8E8E93`}>أو باستخدام</h5>
           <div className="another-method">
