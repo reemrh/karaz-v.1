@@ -48,14 +48,18 @@ function Signup() {
           setIsSignUp(true);
           setEmailToVerify(userEmail);
 
-        }else if (result.status === 400) {
+        }
+        if (result.status === 400) {
           console.log("email is not valid");
           msg = 'email is not valid';
         }
-        else if (result.status === 409) {
+
+        if (result.status === 409) {
           console.log("user is already signed up");
           msg = "user is already signed up";
-        }else if (result.status === 401) {
+
+        }
+        if (result.status === 401) {
           console.log("password is required and must be 8 character, contains numbers and letters");
           msg = "password is required and must be 8 character, contains numbers and letters";
         } 
