@@ -52,21 +52,21 @@ function Signup() {
       })    
       .catch(e => {
         console.log('error is' + e);
-        if (result.status === 400) {
+        if (e.status === 400) {
           console.log("email is not valid");
           msg = 'email is not valid';
         }
 
-        if (result.status === 409) {
+        if (e.status === 409) {
           console.log("user is already signed up");
           msg = "user is already signed up";
 
         }
-        if (result.status === 401) {
+        if (e.status === 401) {
           console.log("password is required and must be 8 character, contains numbers and letters");
           msg = "password is required and must be 8 character, contains numbers and letters";
         } 
-      })
+      
       });
   }
   const responseFacebook = (response) => {
