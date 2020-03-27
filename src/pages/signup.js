@@ -49,6 +49,9 @@ function Signup() {
           setEmailToVerify(userEmail);
 
         }
+      })    
+      .catch(e => {
+        console.log('error is' + e);
         if (result.status === 400) {
           console.log("email is not valid");
           msg = 'email is not valid';
@@ -64,8 +67,6 @@ function Signup() {
           msg = "password is required and must be 8 character, contains numbers and letters";
         } 
       })
-      .catch(e => {
-        console.log('error is' + e);
       });
   }
   const responseFacebook = (response) => {
