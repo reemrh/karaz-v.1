@@ -212,7 +212,7 @@ function Signup() {
           </div>
           <p>تحتاج مساعدة؟</p>
         </div>
-         <span className="Warning">{msg}</span>
+         <span className="Warning">{msg+'hi'}</span>
         <center>
           <h5 className={css`color:#8E8E93`}>أو باستخدام</h5>
           <div className="another-method">
